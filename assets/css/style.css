@@ -1,0 +1,174 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-color :rgb(229,9,20);
+    --dark-color :rgba(0, 0, 0, 0);
+    --white-color :#fff;
+
+}
+body{
+    position:relative;  
+}
+body::after{
+    content:'';
+    min-height: 100vh;
+    background-image: linear-gradient(
+        to top, rgba(0, 0, 0, 0.8) 0,
+        rgba(0, 0, 0, 0) 60%, 
+        rgba(0, 0, 0, 0.8) 100%
+        ),url(../image/hero.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    left:0;
+    top:0;
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(1.5px) ;
+}
+
+.logo{
+    width: 9.25rem;
+    height:2.5rem;
+    display :block;
+
+}
+
+.logo img{
+    display: inline-block;
+    width:100%;
+    object-fit: cover;
+}
+
+
+.btn.nfx-btn,
+.btn.nfx-btn:active,
+.btn.nfx-btn:focus,
+.btn.nfx-btn:hover
+{
+    background-color:var(--primary-color)!important;
+    border-color: var(--primary-color)!important;
+    box-shadow: none !important;
+    border:0;
+}
+
+.btn.nfx-btn-dark
+.btn.nfx-btn-dark:active,
+.btn.nfx-btn-dark:focus,
+.btn.nfx-btn-dark:hover
+{
+    background-color:var(--dark-color)!important;
+    border-color: var(--dark-color)!important;
+    box-shadow: none !important;
+}
+
+.card.movieCard{
+    border:0px;
+    margin-bottom: 20px;
+}
+
+.card.movieCard figure{
+    height:350px;
+    transition: all .4s ease-in-out;
+    position: relative;
+}
+
+.card.movieCard figcaption{
+    bottom: 0;
+    left:0;
+    right:0;
+    position:absolute;
+    padding: 20px;
+    color: #fff;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 1) 100%);
+    opacity: 0;
+    transition: all .4s ease-in-out;
+}
+
+.card.movieCard figure img{
+    width:100%;
+    height:100%;
+    object-fit: cover;   
+}
+
+.card.movieCard:hover figure{
+    transform: scale(1.15);
+}
+
+.card.movieCard:hover figcaption{
+    opacity: 1;
+}
+
+.backdrop{
+    position: fixed;
+    height:100vh;
+    width: 100%; 
+    left:0;
+    top:0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+      
+}
+.movieModel{
+    position: fixed;
+    height:300px;
+    width: 60%; 
+    left:20%;
+    top:10%;
+    background-color: #fff;   
+    display: none;
+}
+
+.backdrop.visible{
+    display: block;
+    animation: fadeIn .35s ease-in-out;
+}
+.movieModel.visible{
+    display: block;
+    animation: slideDown .5s ease-in-out;
+}
+
+.movieModel .card-header .movieClose{
+    font-size: 24px;
+}
+
+.movieClose{
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes slideDown{
+    from{
+        margin-top: -80px;
+        opacity: 0;
+    }
+    to{
+        margin-top:0;
+        opacity: 1;
+    }
+}
+figcaption{
+	height:100%;
+	
+}
+.content{
+	text-overflow: ellipsis;
+	white-space: wrap;
+	overflow-y: scroll;
+	width: 100%;
+	height:60%;
+}
+
